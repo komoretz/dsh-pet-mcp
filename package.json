@@ -1,0 +1,33 @@
+{
+  "name": "dsh-pet-mcp",
+  "version": "0.1.0",
+  "description": "MCP server that lets any agent drive the dsh-pet desktop pet: make it talk, play animations, inspect state.",
+  "type": "module",
+  "main": "src/server.js",
+  "bin": {
+    "dsh-pet-mcp": "src/server.js"
+  },
+  "files": [
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node test/matching.test.mjs && node test/protocol.test.mjs"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "dsh",
+    "deepseek-harness",
+    "dsh-pet",
+    "desktop-pet"
+  ],
+  "license": "MIT",
+  "dependencies": {}
+}

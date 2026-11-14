@@ -1,0 +1,22 @@
+# dsh-pet-mcp 的 DeepSeek Harness 挂载样例
+#
+# 用法：把下面的 insert 段追加到 profile 的 cordis.patch.yml
+# （Windows: %APPDATA%\dsh-desktop\harness\profiles\<profile>\cordis.patch.yml），
+# 路径换成你本机的实际路径，然后重启 DSH —— MCP 的工具清单是启动时读取的。
+#
+# 注意：
+#   · command 建议写 node 的绝对路径（Windows 上 'node' 有时不在子进程的 PATH 里）；
+#   · DSH 的 web 端口每次启动可能不同，按浏览器地址栏里的实际端口填；
+#   · 这里没有权限控制，谁能用这些工具完全由 DSH 的 preset / 工具守卫决定。
+- insert:
+    - id: mcp-dsh-pet
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: dsh-pet
+        transport: stdio
+        command: 'C:\Program Files\nodejs\node.exe'
+        args:
+          - 'C:\path\to\dsh-pet-mcp\src\server.js'
+        env:
+          DSH_PET_BASE_URL: 'http://127.0.0.1:43129'
+        toolCallTimeoutMs: 30000
